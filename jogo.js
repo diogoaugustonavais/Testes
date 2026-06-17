@@ -28,6 +28,27 @@ if (acao == "atacar" || acao == "1"){
                vidaInimigo = ataqueArco(vidaInimigo)
             }
 }
+} else if (acao == "fugir" || acao == "2"){
+    alert("Você decide fugir do inimigo! Você NÃO conseguiu escapar!"+"\n Perdeu aura.")
+    console.log("Você decide fugir do inimigo! Você NÃO conseguiu escapar!"+"\n Perdeu aura.")
+    alert("Você é obrigado a atacar o inimigo!")
+    console.log("Você é obrigado a atacar o inimigo!")
+    if (arma == "pedra" || arma == "1"){
+        let vidaInimigo = 100
+            while (vidaInimigo > 0){
+               vidaInimigo = ataquePedrada(vidaInimigo)
+    }  
+ } else if (arma == "espada" || arma == "2"){
+    let vidaInimigo = 100
+            while (vidaInimigo > 0){
+               vidaInimigo = ataqueEspada(vidaInimigo)
+ }
+}else if (arma == "arco e flecha" || arma == "3"){
+    let vidaInimigo = 100
+            while (vidaInimigo > 0){
+               vidaInimigo = ataqueArco(vidaInimigo)
+            }
+}
 }
 function ataquePedrada(vidaAtualInimigo){
      let ataque = prompt("Qual tipo de ataque deseja usar? (pedrada(1))")
