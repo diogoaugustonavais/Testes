@@ -22,12 +22,17 @@ if (acao == "atacar" || acao == "1"){
             while (vidaInimigo > 0){
                vidaInimigo = ataqueEspada(vidaInimigo)
  }
+}else if (arma == "arco e flecha" || arma == "3"){
+    let vidaInimigo = 100
+            while (vidaInimigo > 0){
+               vidaInimigo = ataqueArco(vidaInimigo)
+            }
 }
 }
 function ataquePedrada(vidaAtualInimigo){
      let ataque = prompt("Qual tipo de ataque deseja usar? (pedrada(1))")
         if (ataque == "pedrada" || ataque == "1"){
-            const dano = 10
+            const dano = 5
             vidaAtualInimigo = vidaAtualInimigo - dano
             console.log("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
             alert("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
@@ -38,6 +43,16 @@ function ataqueEspada(vidaAtualInimigo){
      let ataque = prompt("Qual tipo de ataque deseja usar? (espadada(1))")
         if (ataque == "espadada" || ataque == "1"){
             const dano = 20
+            vidaAtualInimigo = vidaAtualInimigo - dano
+            console.log("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
+            alert("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
+            }
+            return vidaAtualInimigo
+}
+function ataqueArco(vidaAtualInimigo){
+     let ataque = prompt("Qual tipo de ataque deseja usar? (flechada(1))")
+        if (ataque == "flechada" || ataque == "1"){
+            const dano = 15
             vidaAtualInimigo = vidaAtualInimigo - dano
             console.log("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
             alert("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
