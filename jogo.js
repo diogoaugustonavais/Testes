@@ -15,19 +15,32 @@ if (acao == "atacar" || acao == "1"){
     if (arma == "pedra" || arma == "1"){
         let vidaInimigo = 100
             while (vidaInimigo > 0){
-                let ataque = prompt("Qual tipo de ataque deseja usar? (pedrada(1))")
-        if (ataque == "pedrada" || ataque == "1"){
-            const dano = danopedra(ataque)
-            vidaInimigo = vidaInimigo - dano
-            console.log("O inimigo tem " + vidaInimigo + " de vida restante.")
-            alert("O inimigo tem " + vidaInimigo + " de vida restante.")
-            }
+               vidaInimigo = ataquePedrada(vidaInimigo)
     }  
-     
+ } else if (arma == "espada" || arma == "2"){
+    let vidaInimigo = 100
+            while (vidaInimigo > 0){
+               vidaInimigo = ataqueEspada(vidaInimigo)
  }
 }
-function danopedra(ataque){
-    if(ataque == "pedrada" || ataque == "1"){
-        return 10
-    }
-}   
+}
+function ataquePedrada(vidaAtualInimigo){
+     let ataque = prompt("Qual tipo de ataque deseja usar? (pedrada(1))")
+        if (ataque == "pedrada" || ataque == "1"){
+            const dano = 10
+            vidaAtualInimigo = vidaAtualInimigo - dano
+            console.log("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
+            alert("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
+            }
+            return vidaAtualInimigo
+}
+function ataqueEspada(vidaAtualInimigo){
+     let ataque = prompt("Qual tipo de ataque deseja usar? (espadada(1))")
+        if (ataque == "espadada" || ataque == "1"){
+            const dano = 20
+            vidaAtualInimigo = vidaAtualInimigo - dano
+            console.log("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
+            alert("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
+            }
+            return vidaAtualInimigo
+}
