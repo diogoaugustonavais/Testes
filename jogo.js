@@ -53,7 +53,7 @@ if (acao == "atacar" || acao == "1"){
 function ataquePedrada(vidaAtualInimigo){
      let ataque = prompt("Qual tipo de ataque deseja usar? (pedrada(1))")
         if (ataque == "pedrada" || ataque == "1"){
-            const dano = 5
+            const dano = 3
             vidaAtualInimigo = vidaAtualInimigo - dano
             console.log("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
             alert("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
@@ -63,17 +63,27 @@ function ataquePedrada(vidaAtualInimigo){
 function ataqueEspada(vidaAtualInimigo){
      let ataque = prompt("Qual tipo de ataque deseja usar? (espadada(1))")
         if (ataque == "espadada" || ataque == "1"){
-            const dano = 20
+            const espadacritico = 0.2
+            if (Math.random() < espadacritico){
+        console.log("Você acertou um ataque critico!")
+        alert("Você acertou um ataque critico!")
+        const dano = 12
+        vidaAtualInimigo = vidaAtualInimigo - dano
+        console.log("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
+        alert("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
+    } else{
+            const dano = 7
             vidaAtualInimigo = vidaAtualInimigo - dano
             console.log("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
             alert("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
             }
+        }
             return vidaAtualInimigo
 }
 function ataqueArco(vidaAtualInimigo){
      let ataque = prompt("Qual tipo de ataque deseja usar? (flechada(1))")
         if (ataque == "flechada" || ataque == "1"){
-            const dano = 15
+            const dano = 6
             vidaAtualInimigo = vidaAtualInimigo - dano
             console.log("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
             alert("O inimigo tem " + vidaAtualInimigo + " de vida restante.")
