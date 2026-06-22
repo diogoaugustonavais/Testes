@@ -154,13 +154,13 @@ function lootinicial(){
   if (Math.random() < melhoriaferrodrop){
     console.log("Você obteve uma melhoria de ferro!")
     alert("Você obteve uma melhoria de ferro!")
-    let melhoriaFerro = new Item(1, "Melhoria de ferro", "Item", 0)
+    let melhoriaFerro = new Item(001, "Melhoria de ferro", "Item", 0)
     inventarioJogador.push(melhoriaFerro)
   }
   if (Math.random() < curainicialdrop){
     console.log("Você obteve uma poção de cura inicial!")
     alert("Você obteve uma poção de cura inicial!")
-    let curaInicial = new Item(1, "Poção de cura inicial", "Poção", 20)
+    let curaInicial = new Item(002, "Poção de cura inicial", "Poção", 20)
     inventarioJogador.push(curaInicial)
   }
 }
