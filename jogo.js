@@ -24,6 +24,9 @@ if (acao == "atacar" || acao == "1"){
     } else if (arma == "arco e flecha" || arma == "3"){
     vidaInimigo = ataqueArco(vidaInimigo)
     } turno = 2
+    if (vidaInimigo<=0){
+        lootinicial();
+    }
   }
    else { vidaAtualPlayer = ataquedoinimigo(vidaAtualPlayer)
     turno = 1
@@ -100,24 +103,23 @@ function querocorrer(){
     } else{
     alert("Você decide fugir do inimigo! Você NÃO conseguiu escapar!"+"\n Perdeu aura.")
     console.log("Você decide fugir do inimigo! Você NÃO conseguiu escapar!"+"\n Perdeu aura.")
-    alert("Você foi obrigado a atacar o inimigo!")
-    console.log("Você foi obrigado a atacar o inimigo!")
+    alert("Você é obrigado a atacar o inimigo!")
+    console.log("Você é obrigado a atacar o inimigo!")
+     if (arma == "pedra" || arma == "1"){
+        let vidaInimigo = 100
+            while (vidaInimigo > 0){
+               vidaInimigo = ataquePedrada(vidaInimigo)
+    }  
+ } else if (arma == "espada" || arma == "2"){
     let vidaInimigo = 100
-    let vidaAtualPlayer = 100
-    let turno = 1 
-    while (vidaInimigo>0 && vidaAtualPlayer>0){
-    if (turno === 1){
-    if (arma == "pedra" || arma == "1"){
-    vidaInimigo = ataquePedrada(vidaInimigo)
-    } else if (arma == "espada" || arma == "2"){
-    vidaInimigo = ataqueEspada(vidaInimigo)
-    } else if (arma == "arco e flecha" || arma == "3"){
-    vidaInimigo = ataqueArco(vidaInimigo)
-    } turno = 2
-  }
-   else { vidaAtualPlayer = ataquedoinimigo(vidaAtualPlayer)
-    turno = 1
-        }
+            while (vidaInimigo > 0){
+               vidaInimigo = ataqueEspada(vidaInimigo)
+ }
+}else if (arma == "arco e flecha" || arma == "3"){
+    let vidaInimigo = 100
+            while (vidaInimigo > 0){
+               vidaInimigo = ataqueArco(vidaInimigo)
+            }
         }
 }
 }
@@ -129,4 +131,25 @@ function ataquedoinimigo(vidaAtualPlayer){
   console.log("O inimigo te deu "+dano+" de dano!\nVocê tem "+vidaAtualPlayer+" de vida.")
   alert("O inimigo te deu "+dano+" de dano!\nVocê tem "+vidaAtualPlayer+" de vida.")
   return vidaAtualPlayer
+}
+function lootinicial(){
+  const ouro = 1
+  const melhoriaferro = 0.05
+  const curainicial = 0.2
+  if (Math.random() < ouro){
+    console.log("Você obteve 100 de ouro!")
+    alert("Você obteve 100 de ouro!")
+    let ouro = 100
+  }
+  if (Math.random() < melhoriaferro){
+    console.log("Você obteve uma melhoria de ferro!")
+    alert("Você obteve uma melhoria de ferro!")
+    let melhoriaferro = 1
+  }
+  if (Math.random() < curainicial){
+    console.log("Você obteve uma poção de cura inicial!")
+    alert("Você obteve uma poção de cura inicial!")
+    let curainicial = 1
+      
+  }
 }
