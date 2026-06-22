@@ -1,3 +1,14 @@
+class Item {
+  constructor(id, nome, tipo, valor) {
+    this.id = id;
+    this.nome = nome;
+    this.tipo = tipo;
+    this.valor = valor;
+  }
+}
+let inventarioJogador = []
+let ouro = 0
+
 let nome = prompt("Qual é o seu nome?");
 alert("Olá "+ nome + ", seja bem vindo ao jogo!");
 let arma = prompt("Qual arma você deseja usar? (pedra(1), espada(2), arco e flecha(3))");
@@ -24,7 +35,6 @@ function iniciarCombate(){
   let vidaInimigo = 100
   let vidaAtualPlayer = 100
   let turno = 1 
-  let inventarioJogador = []
   while (vidaInimigo>0 && vidaAtualPlayer>0){
     if (turno === 1){
     if (arma == "pedra" || arma == "1"){
