@@ -24,6 +24,9 @@ if (acao == "atacar" || acao == "1"){
     } else if (arma == "arco e flecha" || arma == "3"){
     vidaInimigo = ataqueArco(vidaInimigo)
     } turno = 2
+    if (vidaInimigo<=0){
+        lootinicial();
+    }
   }
    else { vidaAtualPlayer = ataquedoinimigo(vidaAtualPlayer)
     turno = 1
@@ -131,20 +134,22 @@ function ataquedoinimigo(vidaAtualPlayer){
 }
 function lootinicial(){
   const ouro = 1
-  const melhoriaferro = 0.1
+  const melhoriaferro = 0.05
   const curainicial = 0.2
-  if (math.random() < ouro){
+  if (Math.random() < ouro){
     console.log("Você obteve 100 de ouro!")
     alert("Você obteve 100 de ouro!")
-    ouro = 100
+    let ouro = 100
   }
-  if (math.random() < melhoriaferro){
+  if (Math.random() < melhoriaferro){
     console.log("Você obteve uma melhoria de ferro!")
     alert("Você obteve uma melhoria de ferro!")
-    melhoriaferro = 1
+    let melhoriaferro = 1
   }
-  if (math.random() < curainicial){
+  if (Math.random() < curainicial){
     console.log("Você obteve uma poção de cura inicial!")
     alert("Você obteve uma poção de cura inicial!")
-    curainicial = 1
+    let curainicial = 1
+      
   }
+}
