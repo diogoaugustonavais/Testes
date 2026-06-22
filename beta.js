@@ -12,6 +12,15 @@ alert("Você está caminhando pela floresta e encontra um inimigo! O que você f
 let acao = prompt("Digite o número da ação que deseja realizar: (atacar(1), fugir(2))");
 if (acao == "atacar" || acao == "1"){
     alert("Você decide atacar o inimigo!")
+     iniciarCombate()
+} else if (acao == "fugir" || acao == "2"){
+   querocorrer()
+}
+acao = prompt("Você deseja fazer algo? \n (abrir inventario(1), usar poção de cura (2), ignorar(3)")
+escolhas_ou_armazenamento(acao)
+
+
+function iniciarCombate(){
   let vidaInimigo = 100
   let vidaAtualPlayer = 100
   let turno = 1 
@@ -29,15 +38,11 @@ if (acao == "atacar" || acao == "1"){
         lootinicial();
     }
   }
-   else { vidaAtualPlayer = ataquedoinimigo(vidaAtualPlayer)
+   else {vidaAtualPlayer = ataquedoinimigo(vidaAtualPlayer)
     turno = 1
   }
-}       
-} else if (acao == "fugir" || acao == "2"){
-   querocorrer()
 }
-acao = prompt("Você deseja fazer algo? \n (abrir inventario(1), usar poção de cura (2), ignorar(3)")
-escolhas_ou_armazenamento(acao)
+}
 function ataquePedrada(vidaAtualInimigo){
      let ataque = prompt("Qual tipo de ataque deseja usar? (pedrada(1))")
         if (ataque == "pedrada" || ataque == "1"){
@@ -108,22 +113,7 @@ function querocorrer(){
     console.log("Você decide fugir do inimigo! Você NÃO conseguiu escapar!"+"\n Perdeu aura.")
     alert("Você é obrigado a atacar o inimigo!")
     console.log("Você é obrigado a atacar o inimigo!")
-     if (arma == "pedra" || arma == "1"){
-        let vidaInimigo = 100
-            while (vidaInimigo > 0){
-               vidaInimigo = ataquePedrada(vidaInimigo)
-    }  
- } else if (arma == "espada" || arma == "2"){
-    let vidaInimigo = 100
-            while (vidaInimigo > 0){
-               vidaInimigo = ataqueEspada(vidaInimigo)
- }
-}else if (arma == "arco e flecha" || arma == "3"){
-    let vidaInimigo = 100
-            while (vidaInimigo > 0){
-               vidaInimigo = ataqueArco(vidaInimigo)
-            }
-        }
+     iniciarCombate()
 }
 }
 function ataquedoinimigo(vidaAtualPlayer){
@@ -172,7 +162,7 @@ function loja(){
 }
 function mostrarMochila(){
         alert("--- Inventario ---")
-        inventarioDoJogador.forEach(function(item){
+        inventarioJogador.forEach(function(item){
             alert(`Nome: ${item.nome} | Tipo: ${item.tipo} | Valor: ${item.valor} moedas`)
     })
 }
