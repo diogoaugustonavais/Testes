@@ -15,6 +15,7 @@ if (acao == "atacar" || acao == "1"){
   let vidaInimigo = 100
   let vidaAtualPlayer = 100
   let turno = 1 
+  let inventarioJogador = []
   while (vidaInimigo>0 && vidaAtualPlayer>0){
     if (turno === 1){
     if (arma == "pedra" || arma == "1"){
@@ -35,6 +36,8 @@ if (acao == "atacar" || acao == "1"){
 } else if (acao == "fugir" || acao == "2"){
    querocorrer()
 }
+acao = prompt("Você deseja fazer algo? \n (abrir inventario(1), usar poção de cura (2), ignorar(3)")
+escolhas_ou_armazenamento(acao)
 function ataquePedrada(vidaAtualInimigo){
      let ataque = prompt("Qual tipo de ataque deseja usar? (pedrada(1))")
         if (ataque == "pedrada" || ataque == "1"){
@@ -132,24 +135,44 @@ function ataquedoinimigo(vidaAtualPlayer){
   alert("O inimigo te deu "+dano+" de dano!\nVocê tem "+vidaAtualPlayer+" de vida.")
   return vidaAtualPlayer
 }
+function escolhas_ou_armazenamento(acao){
+    if (acao == "1" || acao == "inventario"){
+    console.log("Abrindo o armazenamento")
+     mostrarMochila()
+    } else if (acao == "2" || acao == "cura"){
+     console.log("Poção de cura")
+    } else if (acao == "3" || acao == "sair" || acao == "ignorar"){
+     console.log("Você decidiu ignorar...") 
+    }
+}
 function lootinicial(){
-  const ouro = 1
-  const melhoriaferro = 0.05
-  const curainicial = 0.2
-  if (Math.random() < ouro){
+  const melhoriaferrodrop = 0.1
+  const curainicialdrop = 0.2
     console.log("Você obteve 100 de ouro!")
     alert("Você obteve 100 de ouro!")
-    let ouro = 100
-  }
-  if (Math.random() < melhoriaferro){
+    ouro = 100
+  if (Math.random() < melhoriaferrodrop){
     console.log("Você obteve uma melhoria de ferro!")
     alert("Você obteve uma melhoria de ferro!")
-    let melhoriaferro = 1
+    let melhoriaFerro = new Item(1, "Melhoria de ferro", "Item", 0)
+    inventarioJogador.push(melhoriaFerro)
   }
-  if (Math.random() < curainicial){
+  if (Math.random() < curainicialdrop){
     console.log("Você obteve uma poção de cura inicial!")
     alert("Você obteve uma poção de cura inicial!")
-    let curainicial = 1
-      
+    let curaInicial = new Item(1, "Poção de cura inicial", "Poção", 20)
+    inventarioJogador.push(curaInicial)
   }
+}
+function loja(){
+    console.log("Você encontra uma loja...")
+    alert("Você encontra uma loja...")
+    alert("Bem vindo a loja! você deseja comprar alguma coisa?")
+
+}
+function mostrarMochila(){
+        alert("--- Inventario ---")
+        inventarioDoJogador.forEach(function(item){
+            alert(`Nome: ${item.nome} | Tipo: ${item.tipo} | Valor: ${item.valor} moedas`)
+    })
 }
